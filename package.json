@@ -1,0 +1,45 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node build/index.js",
+    "dev": "tsc-watch --onSuccess \"node ./build/index.js\"",
+    "build": "tsc",
+    "postinstall": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.10.2",
+    "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.18",
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/node": "^20.6.5",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
+    "tsc-watch": "^6.0.4",
+    "typescript": "^5.2.2"
+  },
+  "_moduleAliases": {
+    "@/Routes": "build/Routes",
+    "@/Middleware": "build/Middleware",
+    "@/Resources": "build/Resources",
+    "@/Models/*": "Models/*",
+    "@/Interfaces/*": "Interfaces/*"
+  }
+}
