@@ -5,7 +5,8 @@ function ErrorMiddleware(error, req, res, next) {
     const message = error.message || 'Something went wrong';
     res.status(status).send({
         status,
-        message
+        message,
+        data: {}
     });
 }
 exports.default = ErrorMiddleware;

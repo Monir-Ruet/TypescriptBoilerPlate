@@ -38,7 +38,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.isAuthorized = exports.GenerateToken = void 0;
 const jwt = __importStar(require("jsonwebtoken"));
 require("dotenv/config");
-const httpexception_1 = __importDefault(require("@/Resources/httpexception"));
+const Response_1 = __importDefault(require("@/Resources/Response"));
 function GenerateToken(payload) {
     const secretKey = process.env.ACCESS_TOKEN_SECRET;
     return jwt.sign(payload, secretKey, { expiresIn: '2592000s' });
@@ -56,7 +56,7 @@ const isAuthorized = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         next();
     }
     catch (err) {
-        next(new httpexception_1.default(400, 'Please provide a valid authorization token'));
+        next(new Response_1.default(400, 'Please provide a valid authorization token', {}));
     }
 });
 exports.isAuthorized = isAuthorized;

@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 require("module-alias/register");
-const httpexception_1 = __importDefault(require("@/Resources/httpexception"));
+const Response_1 = __importDefault(require("@/Resources/Response"));
 const joi_1 = __importDefault(require("joi"));
 function validationMiddleware(schema) {
     return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
@@ -27,7 +27,7 @@ function validationMiddleware(schema) {
         }
         catch (err) {
             if (err instanceof joi_1.default.ValidationError) {
-                const error = new httpexception_1.default(400, err.details[0].message);
+                const error = new Response_1.default(400, err.details[0].message, {});
                 next(error);
             }
         }

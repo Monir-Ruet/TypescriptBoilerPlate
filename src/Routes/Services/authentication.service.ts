@@ -1,7 +1,7 @@
 import * as jwt from "jsonwebtoken";
 import 'dotenv/config'
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import HttpException from "@/Resources/httpexception";
+import HttpException from "@/Resources/Response";
 
 interface Payload {
 	username: string
@@ -23,7 +23,7 @@ const isAuthorized = async (req: Request, res: Response, next: NextFunction): Pr
 		next();
 	}
 	catch (err) {
-		next(new HttpException(400, 'Please provide a valid authorization token'));
+		next(new HttpException(400, 'Please provide a valid authorization token', {}));
 	}
 }
 export {
